@@ -6,3 +6,4 @@ This keymap tracks `massdrop/alt/keymaps/default` with the following changes:
 * Create named aliases for layers.
 * *Caps Lock* key produces *Esc*.
 * *Esc* key produces *Grave*.
+* Swap *Left GUI* and *Left Alt* in base layer (i.e., macOS is primary OS).
