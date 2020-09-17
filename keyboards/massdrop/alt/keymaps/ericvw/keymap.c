@@ -36,6 +36,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     */
 };
 
+void keyboard_post_init_user(void)
+{
+#ifdef RGB_MATRIX_ENABLE
+    rgb_matrix_sethsv_noeeprom(HSV_BLUE);
+    rgb_matrix_decrease_hue_noeeprom();
+    rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE);
+#endif
+}
+
 #define MODS_SHIFT  (get_mods() & MOD_BIT(KC_LSHIFT) || get_mods() & MOD_BIT(KC_RSHIFT))
 #define MODS_CTRL  (get_mods() & MOD_BIT(KC_LCTL) || get_mods() & MOD_BIT(KC_RCTRL))
 #define MODS_ALT  (get_mods() & MOD_BIT(KC_LALT) || get_mods() & MOD_BIT(KC_RALT))
