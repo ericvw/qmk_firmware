@@ -9,3 +9,5 @@ This keymap tracks `massdrop/alt/keymaps/default` with the following changes:
 * Enable swapping of *Left Alt* and *Left GUI* in the function layer (i.e., Fn + (LALT | LGUI) for
   determine which key is produced left of the *Spacebar*).
 * Set startup LED lighting to a hue step below `HSV_BLUE` that pulses upon key press.
+* Enable WASD arrow keys in the function layer and move RGB mode and values as Vim `hjkl` keys.
+  `jk` are for RGB value and `hl` are for RGB mode.
