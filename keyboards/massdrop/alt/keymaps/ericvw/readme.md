@@ -12,3 +12,4 @@ This keymap tracks `massdrop/alt/keymaps/default` with the following changes:
 * Set startup LED lighting to a hue step below `HSV_BLUE` that pulses upon key press.
 * Enable WASD arrow keys in the function layer and move RGB mode and values as Vim `hjkl` keys.
   `jk` are for RGB value and `hl` are for RGB mode.
+* Add a standard Windows OS base layer for Renee.
