@@ -2,6 +2,7 @@
 
 enum LAYERS {
     BASE = 0,
+    MAC,
     ERIC,
     FN,
 };
@@ -13,6 +14,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_CAPS, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,          KC_ENT,  KC_PGUP,
         KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,          KC_UP,   KC_PGDN,
         KC_LCTL, KC_LGUI, KC_LALT,                            KC_SPC,                             KC_RALT, MO(FN),  KC_LEFT, KC_DOWN, KC_RGHT
+    ),
+    [MAC] = LAYOUT_65_ansi_blocker(
+        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          _______, _______,
+        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          _______, _______,
+        _______, KC_LALT, KC_LGUI,                            _______,                            _______, _______, _______, _______, _______
     ),
     [ERIC] = LAYOUT_65_ansi_blocker(
         KC_GRV,  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
@@ -26,7 +34,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______,  RGB_SPD, KC_UP,   RGB_SPI, RGB_HUI, RGB_SAI, _______, _______, _______, _______, KC_PSCR, KC_SCRL, KC_PAUS, _______, KC_END,
         TG(ERIC), KC_LEFT, KC_DOWN, KC_RGHT, RGB_HUD, RGB_SAD, RGB_RMOD,RGB_VAD, RGB_VAI, RGB_MOD, _______, _______,          _______, KC_VOLU,
         _______,  RGB_TOG, _______, _______, _______, QK_BOOT, NK_TOGG, DB_TOGG, _______, _______, _______, _______,          KC_PGUP, KC_VOLD,
-        _______,  _______, _______,                            _______,                            _______, _______, KC_HOME, KC_PGDN, KC_END
+        _______,  _______, TG(MAC),                            _______,                            _______, _______, KC_HOME, KC_PGDN, KC_END
     ),
     /*
     [X] = LAYOUT(
