@@ -16,3 +16,4 @@ This keymap tracks `massdrop/alt/keymaps/default` with the following changes:
 * Toggle RGB lighting to blue when using my daily driver layer. My favorite
   color :).
 * Toggle RGB lighting to green when FN layer is active.
+* Provide a mechanism to reset to the base layer and de-activate all others.
