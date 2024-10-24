@@ -9,3 +9,6 @@ This keymap tracks `massdrop/alt/keymaps/default` with the following changes:
   display timeout.
 * Enable WASD arrow keys in the function layer and move RGB mode and values as
   Vim `hjkl` keys. `jk` are for RGB value and `hl` are for RGB mode.
+* Add a personal daily driving layer.
+  * *Caps Lock* key produces *Esc*.
+  * *Esc* key produces *Grave*.
