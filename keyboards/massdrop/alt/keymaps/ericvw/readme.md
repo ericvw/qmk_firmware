@@ -11,3 +11,4 @@ This keymap tracks `massdrop/alt/keymaps/default` with the following changes:
 * Add a personal daily driving layer.
   * *Caps Lock* key produces *Esc*.
   * *Esc* key produces *Grave*.
+* Provide a mechanism to reset to the base layer and de-activate all others.
