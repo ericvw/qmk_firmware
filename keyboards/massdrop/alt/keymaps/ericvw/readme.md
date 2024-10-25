@@ -18,3 +18,4 @@ This keymap tracks `massdrop/alt/keymaps/default` with the following changes:
 * Toggle RGB lighting to green when FN layer is active.
 * Provide a mechanism to reset to the base layer and de-activate all others.
 * Add layer for swapping *Left GUI* and *Left Alt* keys for macOS.
+* Add layer for disabling the left GUI (i.e., Windows) key for gaming.
