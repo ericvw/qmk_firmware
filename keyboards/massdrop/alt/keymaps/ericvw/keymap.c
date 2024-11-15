@@ -113,3 +113,17 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         return true; //Process all other keycodes normally
     }
 }
+
+bool shutdown_user(bool jump_to_bootloader) {
+    if (jump_to_bootloader) {
+        rgb_matrix_set_color_all(RGB_RED);
+    } else {
+        rgb_matrix_set_color_all(RGB_OFF);
+    }
+
+    // Ensure RGB changes display during shutdown.
+    rgb_matrix_driver.flush();
+
+    // Do not process at the kb level.
+    return false;
+}
