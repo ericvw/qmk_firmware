@@ -45,6 +45,26 @@ void keyboard_post_init_user(void)
     rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE);
 }
 
+layer_state_t layer_state_set_user(layer_state_t state) {
+    switch (get_highest_layer(state & ~(1<<FN))) {
+      case ERIC: {
+        rgb_matrix_sethsv_noeeprom(HSV_BLUE);
+        rgb_matrix_decrease_hue_noeeprom();
+
+        if (host_keyboard_led_state().caps_lock) {
+            // Turn off CapsLock if it was on because my daily driving layer
+            // doesn't have a keycode for it.
+            tap_code(KC_CAPS);
+        }
+      } break;
+      default: {
+        rgb_matrix_sethsv_noeeprom(HSV_PURPLE);
+      }
+    }
+
+    return state;
+}
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
       case RGB_TOG:
