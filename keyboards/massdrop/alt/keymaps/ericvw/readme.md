@@ -13,3 +13,5 @@ This keymap tracks `massdrop/alt/keymaps/default` with the following changes:
   * *Caps Lock* key produces *Esc*.
   * *Esc* key produces *Grave*.
 * Set baseline RGB lighting to purple that pulses upon key press.
+* Toggle RGB lighting to blue when using my daily driver layer. My favorite
+  color :).
