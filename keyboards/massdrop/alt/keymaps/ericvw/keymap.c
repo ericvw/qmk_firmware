@@ -85,6 +85,15 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     return state;
 }
 
+bool rgb_matrix_indicators_user(void) {
+    if (IS_LAYER_ON(GAME)) {
+        // Indicate when the LGUI key is disabled.
+        rgb_matrix_set_color(59, RGB_RED);
+    }
+
+    return true;
+}
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
       case RGB_TOG:

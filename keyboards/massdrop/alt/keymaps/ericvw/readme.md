@@ -20,3 +20,4 @@ This keymap tracks `massdrop/alt/keymaps/default` with the following changes:
 * Add layer for swapping *Left GUI* and *Left Alt* keys for macOS.
 * Add layer for disabling the left GUI (i.e., Windows) key for gaming.
 * Flash RGB red when entering the bootloader.
+* Set *Left GUI* key color to red when disabled.
