@@ -46,7 +46,10 @@ void keyboard_post_init_user(void)
 }
 
 layer_state_t layer_state_set_user(layer_state_t state) {
-    switch (get_highest_layer(state & ~(1<<FN))) {
+    switch (get_highest_layer(state)) {
+      case FN: {
+        rgb_matrix_sethsv_noeeprom(HSV_GREEN);
+      } break;
       case ERIC: {
         rgb_matrix_sethsv_noeeprom(HSV_BLUE);
         rgb_matrix_decrease_hue_noeeprom();
