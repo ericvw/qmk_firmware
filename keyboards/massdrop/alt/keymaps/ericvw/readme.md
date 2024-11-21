@@ -21,3 +21,4 @@ This keymap tracks `massdrop/alt/keymaps/default` with the following changes:
 * Add layer for disabling the left GUI (i.e., Windows) key for gaming.
 * Flash RGB red when entering the bootloader.
 * Set *Left GUI* key color to red when disabled.
+* Set *Left GUI* and *Left Alt* key color to orange when swapped.

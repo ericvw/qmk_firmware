@@ -86,6 +86,12 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 }
 
 bool rgb_matrix_indicators_user(void) {
+    if (IS_LAYER_ON(MAC)) {
+        // Indicate when the LGUI and LALT keys are swapped.
+        rgb_matrix_set_color(59, RGB_ORANGE);
+        rgb_matrix_set_color(60, RGB_ORANGE);
+    }
+
     if (IS_LAYER_ON(GAME)) {
         // Indicate when the LGUI key is disabled.
         rgb_matrix_set_color(59, RGB_RED);
