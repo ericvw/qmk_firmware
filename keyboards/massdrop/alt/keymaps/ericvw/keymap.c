@@ -1,11 +1,18 @@
 #include QMK_KEYBOARD_H
 
+#include "os_detection.h"
+
 enum LAYERS {
     BASE = 0,
     GAME,
     MAC,
     ERIC,
     FN,
+};
+
+enum custom_keycodes {
+    STORE_SETUPS = SAFE_RANGE,
+    PRINT_SETUPS,
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -42,7 +49,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_GRV,   KC_F1,    KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  _______, KC_MUTE,
         TO(BASE), _______,  KC_UP,   _______, _______, _______, _______, _______, _______, _______, KC_PSCR, KC_SCRL, KC_PAUS, _______, KC_END,
         TG(ERIC), KC_LEFT,  KC_DOWN, KC_RGHT, _______, _______, _______, _______, _______, _______, _______, _______,          _______, KC_VOLU,
-        _______,  RGB_TOG,  _______, _______, _______, QK_BOOT, NK_TOGG, DB_TOGG, _______, _______, _______, _______,          KC_PGUP, KC_VOLD,
+        _______,  RGB_TOG,  _______, _______, _______, QK_BOOT, NK_TOGG, DB_TOGG, STORE_SETUPS, PRINT_SETUPS, _______, _______,          KC_PGUP, KC_VOLD,
         _______,  TG(GAME), TG(MAC),                            _______,                            _______, _______, KC_HOME, KC_PGDN, KC_END
     ),
     /*
@@ -60,6 +67,7 @@ void keyboard_post_init_user(void)
 {
     rgb_matrix_sethsv_noeeprom(HSV_PURPLE);
     rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE);
+    debug_enable = true;
 }
 
 layer_state_t layer_state_set_user(layer_state_t state) {
@@ -100,6 +108,19 @@ bool rgb_matrix_indicators_user(void) {
     return true;
 }
 
+bool process_detected_host_os_user(os_variant_t detected_os) {
+    printf("WE LIVE\n");
+    switch (detected_os) {
+      case OS_MACOS: {
+        layer_on(MAC);
+      } break;
+      default: {
+        layer_off(MAC);
+      }
+    }
+    return false;
+}
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
       case RGB_TOG:
@@ -124,6 +145,20 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
         }
         return false;
+        case STORE_SETUPS: {
+            if (record->event.pressed) {
+                printf("Stored setups\n");
+                store_setups_in_eeprom();
+            }
+            return false;
+        } break;
+        case PRINT_SETUPS: {
+            if (record->event.pressed) {
+                printf("print setups\n");
+                print_stored_setups();
+            };
+            return false;
+        } break;
       default:
         return true; //Process all other keycodes normally
     }

@@ -1,5 +1,9 @@
 #pragma once
 
+#define OS_DETECTION_DEBUG_ENABLE
+
+#define OS_DETECTION_DEBOUNCE 2000
+
 // Disable control of the RGB matrix via keycodes to avoid EEPROM writes.
 #define RGB_MATRIX_DISABLE_KEYCODES
 

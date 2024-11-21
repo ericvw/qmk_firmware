@@ -76,6 +76,7 @@ void os_detection_task(void) {
     if (current_usb_device_state == USB_DEVICE_STATE_CONFIGURED) {
         // debouncing goes for both the detected OS as well as the USB state
         if (debouncing && timer_elapsed_fast(last_time) >= OS_DETECTION_DEBOUNCE) {
+            print("reporting\n");
             debouncing                = false;
             reported_usb_device_state = current_usb_device_state;
             if (detected_os != reported_os || first_report) {
@@ -165,6 +166,7 @@ void erase_wlength_data(void) {
 
 void os_detection_notify_usb_device_state_change(enum usb_device_state usb_device_state) {
     // treat this like any other source of instability
+    print("device state chagned\n");
     current_usb_device_state = usb_device_state;
     last_time                = timer_read_fast();
     debouncing               = true;
